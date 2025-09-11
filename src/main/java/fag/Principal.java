@@ -10,16 +10,16 @@ public class Principal {
 		System.out.println("=== ATIVIDADE JAVA BÁSICO - 10 QUESTÕES ===\n");
 		
 		// Executar todas as questões
-		questao1_Scanner(scan);
-		questao2_Print();
-		questao3_For();
-		questao4_If(scan);
-		questao5_While(scan);
-		questao6_Metodos();
+		//questao1_Scanner(scan);
+		//questao2_Print();
+		//questao3_For();
+		//questao4_If(scan);
+		//questao5_While(scan);
+		//questao6_Metodos(scan);
 		questao7_ScannerIf(scan);
-		questao8_ForPrint();
-		questao9_WhileScanner(scan);
-		questao10_MetodosFor();
+		//questao8_ForPrint();
+		//questao9_WhileScanner(scan);
+		//questao10_MetodosFor();
 		
 		scan.close();
 	}
@@ -31,7 +31,13 @@ public class Principal {
 	// e exiba uma mensagem de boas-vindas personalizada
 	// Exemplo: "Olá João! Você tem 20 anos. Seja bem-vindo(a)!"
 	public static void questao1_Scanner(Scanner scan) {
-		
+		int idade;
+		String nome;
+		System.out.println("Entre com o seu nome");
+		nome = scan.nextLine();
+		System.out.println("Entre com a sua idade");
+		idade = scan.nextInt();
+		System.out.printf("Olá %s! Você tem %d anos. Seja bem-vindo(a)!", nome, idade);
 	}
 	
 	// ========================================
@@ -43,7 +49,11 @@ public class Principal {
 	public static void questao2_Print() {
 		System.out.println("=== QUESTÃO 2 - PRINT ===");
 		// SEU CÓDIGO AQUI
-		
+		int y;
+		for(int x=1; x<11; x++) {
+			y=5*x;
+			System.out.printf("5 x %d = %d \n", x, y);
+		}
 	}
 	
 	// ========================================
@@ -55,8 +65,11 @@ public class Principal {
 	public static void questao3_For() {
 		System.out.println("=== QUESTÃO 3 - FOR ===");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		int y = 0;
+		for(int x = 1; x < 101; x++) {
+			y = y + x;
+		}
+		System.out.println(y);
 	}
 	
 	// ========================================
@@ -70,8 +83,14 @@ public class Principal {
 		System.out.println("=== QUESTÃO 4 - IF ===");
 		System.out.println("Digite sua nota (0 a 10):");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		int nota = scan.nextInt();
+		if(nota >= 7) {
+			System.out.println("Parabéns! Você foi APROVADO!");
+		} else if(nota >= 4 && nota < 7) {
+			System.out.println("Você está em RECUPERAÇÃO. Estude mais!");
+		} else if(nota < 4) {
+			System.out.println("Infelizmente você foi REPROVADO.Tente novamente!");
+		}
 	}
 	
 	// ========================================
@@ -83,8 +102,14 @@ public class Principal {
 		System.out.println("=== QUESTÃO 5 - WHILE ===");
 		System.out.println("Digite números inteiros (digite 0 para parar):");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		int x, y = 1;
+		int soma = 0;
+		while(y != 0) {
+			y = scan.nextInt();
+			x = y;
+			soma = soma + x;
+		}
+		System.out.println(soma);
 	}
 	
 	// ========================================
@@ -93,11 +118,14 @@ public class Principal {
 	// TODO: Crie um método que receba dois números e retorne o maior entre eles
 	// Teste o método com diferentes valores
 	// Dica: Use o método encontrarMaior() que está declarado abaixo
-	public static void questao6_Metodos() {
+	public static void questao6_Metodos(Scanner scan) {
 		System.out.println("=== QUESTÃO 6 - MÉTODOS ===");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		System.out.println("Entre com 2 numeros interiros");
+		int x = scan.nextInt();
+		int y = scan.nextInt();
+		int maior = encontrarMaior(x, y);
+		System.out.println("O maior numero é " + maior);
 	}
 	
 	// ========================================
@@ -109,8 +137,12 @@ public class Principal {
 		System.out.println("=== QUESTÃO 7 - SCANNER + IF ===");
 		System.out.println("Digite um número inteiro:");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		int x = scan.nextInt();
+		if(x%2==0) {
+			System.out.println("É par");
+		} else {
+			System.out.println("É impar");
+		}
 	}
 	
 	// ========================================
@@ -158,7 +190,11 @@ public class Principal {
 	// TODO: Implemente este método para retornar o maior entre dois números
 	public static int encontrarMaior(int a, int b) {
 		// SEU CÓDIGO AQUI
-		return 0; // Remova esta linha e implemente a lógica
+		if(a<b) {
+			return b;
+		} else {
+			return a;
+		}
 	}
 	
 	// ========================================
