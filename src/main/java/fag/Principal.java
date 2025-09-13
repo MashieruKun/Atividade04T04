@@ -10,16 +10,16 @@ public class Principal {
 		System.out.println("=== ATIVIDADE JAVA BÁSICO - 10 QUESTÕES ===\n");
 		
 		// Executar todas as questões
-		//questao1_Scanner(scan);
-		//questao2_Print();
-		//questao3_For();
-		//questao4_If(scan);
-		//questao5_While(scan);
-		//questao6_Metodos(scan);
+		questao1_Scanner(scan);
+		questao2_Print();
+		questao3_For();
+		questao4_If(scan);
+		questao5_While(scan);
+		questao6_Metodos(scan);
 		questao7_ScannerIf(scan);
-		//questao8_ForPrint();
-		//questao9_WhileScanner(scan);
-		//questao10_MetodosFor();
+		questao8_ForPrint();
+		questao9_WhileScanner(scan);
+		questao10_MetodosFor(scan);
 		
 		scan.close();
 	}
@@ -83,7 +83,7 @@ public class Principal {
 		System.out.println("=== QUESTÃO 4 - IF ===");
 		System.out.println("Digite sua nota (0 a 10):");
 		// SEU CÓDIGO AQUI
-		int nota = scan.nextInt();
+		float nota = scan.nextFloat();
 		if(nota >= 7) {
 			System.out.println("Parabéns! Você foi APROVADO!");
 		} else if(nota >= 4 && nota < 7) {
@@ -139,9 +139,9 @@ public class Principal {
 		// SEU CÓDIGO AQUI
 		int x = scan.nextInt();
 		if(x%2==0) {
-			System.out.println("É par");
+			System.out.println("PAR");
 		} else {
-			System.out.println("É impar");
+			System.out.println("IMPAR");
 		}
 	}
 	
@@ -153,8 +153,11 @@ public class Principal {
 	public static void questao8_ForPrint() {
 		System.out.println("=== QUESTÃO 8 - FOR + PRINT ===");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		for(int x = 1; x<=20; x++) {
+			if(x%2==0) {
+				System.out.println(x);
+			}
+		}
 	}
 	
 	// ========================================
@@ -166,8 +169,15 @@ public class Principal {
 		System.out.println("=== QUESTÃO 9 - WHILE + SCANNER ===");
 		System.out.println("Digite números (digite um número negativo para parar):");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		int cont = 0;
+		int x = scan.nextInt();
+		scan.nextLine();
+		while(x > 0) {
+			cont++;
+			x = scan.nextInt();
+			scan.nextLine();
+		}
+		System.out.println("a quantidade de numeros positivos digitados foi de " + cont);
 	}
 	
 	// ========================================
@@ -177,11 +187,13 @@ public class Principal {
 	// Teste o método com os valores 5 e 7
 	// Dica: Use o método calcularFatorial() que está declarado abaixo
 	// Fatorial de 5 = 5! = 5 x 4 x 3 x 2 x 1 = 120
-	public static void questao10_MetodosFor() {
+	public static void questao10_MetodosFor(Scanner scan) {
 		System.out.println("=== QUESTÃO 10 - MÉTODOS + FOR ===");
 		// SEU CÓDIGO AQUI
-		
-		System.out.println();
+		System.out.println("Entre com o numero que deseja ser fatorado");
+		int x = scan.nextInt();
+		long fatorial = calcularFatorial(x);
+		System.out.println("o fatorial de " + x + " é " + fatorial);
 	}
 	
 	// ========================================
@@ -204,6 +216,10 @@ public class Principal {
 	// Use um laço for para fazer o cálculo
 	public static long calcularFatorial(int n) {
 		// SEU CÓDIGO AQUI
-		return 0; // Remova esta linha e implemente a lógica
+		long fat=n;
+		for(int x = n; x > 1; x--) {
+			fat=fat*(x-1);
+		}
+		return fat;
 	}
 }
